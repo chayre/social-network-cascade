@@ -1,5 +1,5 @@
 from utils.cascade_simulation import create_graph, independent_cascade, find_influencers
-from utils.linear_threshold_simulation import linear_threshold_model
+from utils.linear_threshold_simulation import linear_threshold_model, apply_weights
 from utils.plotting import plot_graph, compute_positions
 import random
 
@@ -27,12 +27,11 @@ def main():
     plot_graph(G, pos, cascade_active_nodes, seed_nodes)
 
     # Add weights to the edges for influence strength
-    for u, v in G.edges():
-        G[u][v]['weight'] = random.uniform(0.3, 0.5)
+    G_weighted_edges = apply_weights(G, 0.3, 0.5)
 
     # Plot results of linear threshold model
     linear_active_nodes = linear_threshold_model(G, seed_nodes)
-    plot_graph(G, pos, linear_active_nodes, seed_nodes)
+    plot_graph(G_weighted_edges, pos, linear_active_nodes, seed_nodes)
 
 if __name__ == "__main__":
     main()
