@@ -36,3 +36,4 @@ def plot_graph(G, pos, active_nodes=[], seed_nodes=[]):
     nx.draw(G, pos, with_labels=True, node_color=colors, node_size=300, nodelist=nodelist)
     plt.title("Graph Visualization with Active and Seed Nodes")
     plt.show()
+    
