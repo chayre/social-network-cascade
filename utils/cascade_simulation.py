@@ -25,7 +25,7 @@ def independent_cascade(G, seed_nodes, activation_prob=0.1):
     Simulates influence spread in a network using the Independent Cascade Model.
     
     Parameters:
-    - G: The graph
+    - G: The graph representing the network, where nodes are individuals 
     - seed_nodes: List of initial active (seed) nodes
     - activation_prob: Probability of activating a neighbor
     
