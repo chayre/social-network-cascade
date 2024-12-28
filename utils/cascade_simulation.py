@@ -1,4 +1,24 @@
 import random
+import networkx as nx
+
+def create_graph(n=50, p=0.05):
+    """
+    Creates a graph of n nodes with p probability they will be connected. Don't include any solitary nodes (ones with no connections/neighbors).
+    
+    Parameters:
+    - n: Total number of nodes in the graph
+    - p: Probability of connection
+    
+    Returns:
+    - G: A created graph
+    """    
+    G = nx.erdos_renyi_graph(n=50, p=0.05)
+
+    # Remove nodes with no neighbors (degree = 0)
+    solitary_nodes = [node for node, degree in dict(G.degree()).items() if degree == 0]
+    G.remove_nodes_from(solitary_nodes)
+
+    return G
 
 def independent_cascade(G, seed_nodes, activation_prob=0.1):
     """

@@ -1,6 +1,21 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
+def compute_positions(G):
+    """
+    Creates a list of node positions so that plots are spatially consistent.
+    
+    Parameters:
+    - G: The graph.
+    
+    Returns:
+    - pos: List of positions for plotting
+    """    
+    # Precompute positions using spring layout
+    pos = nx.spring_layout(G, seed=7)  
+    
+    return pos
+
 def plot_graph(G, pos, active_nodes=[], seed_nodes=[]):
     """
     Plots the graph with nodes color-coded based on their status.
