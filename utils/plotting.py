@@ -12,7 +12,9 @@ def plot_graph(G, pos, active_nodes=[], seed_nodes=[]):
     - seed_nodes: List of initial seed nodes
     """
     colors = [
-        'red' if node in active_nodes else 'green' if node in seed_nodes else 'blue'
+        'green' if node in seed_nodes else
+        'red' if node in active_nodes else
+        'blue'
         for node in G.nodes()
     ]
     nx.draw(G, pos, with_labels=True, node_color=colors, node_size=300)
