@@ -1,1 +1,5 @@
 __pycache__/
+/lib
+/data
+/tests
+large_graph.html
