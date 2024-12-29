@@ -8,6 +8,9 @@ def apply_weights(G, min, max):
     - G: The graph representing the network, where nodes are individuals and edges represent connections between them.
     - min: Number from 0 to 1 which is the minimum applied weight
     - max: Number from 0 to 1 which is the maximum applied weight
+
+    Returns:
+    - G: The graph with weights applied.
     """    
     for u, v in G.edges():
         G[u][v]['weight'] = random.uniform(min, max)
