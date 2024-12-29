@@ -1,7 +1,7 @@
 import random
 import networkx as nx
 
-def create_graph(n=50, p=0.05):
+def create_graph(n=40, p=0.05):
     """
     Creates a graph of n nodes with p probability they will be connected. Don't include any solitary nodes (ones with no connections/neighbors).
     
@@ -12,7 +12,7 @@ def create_graph(n=50, p=0.05):
     Returns:
     - G: A created graph
     """    
-    G = nx.erdos_renyi_graph(n=50, p=0.05)
+    G = nx.erdos_renyi_graph(n, p)
 
     # Remove nodes with no neighbors (degree = 0)
     solitary_nodes = [node for node, degree in dict(G.degree()).items() if degree == 0]

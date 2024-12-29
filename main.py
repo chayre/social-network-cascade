@@ -5,7 +5,7 @@ import random
 
 def main():
     # Create starting graph
-    G = create_graph(n=50, p=0.05)
+    G = create_graph(n=40, p=0.10)
 
     # Precompute positions using spring layout
     pos = compute_positions(G)
@@ -14,7 +14,7 @@ def main():
     plot_graph(G, pos)
 
     # Find the top 5 influencers
-    seed_nodes = find_influencers(G, k=5, activation_prob=0.10)
+    seed_nodes = find_influencers(G, k=5, activation_prob=0.05)
 
     # Simulate the spread starting from the seed nodes (top 5 influencers)
     cascade_active_nodes = independent_cascade(G, seed_nodes, activation_prob=0.40)
@@ -27,7 +27,7 @@ def main():
     plot_graph(G, pos, cascade_active_nodes, seed_nodes)
 
     # Add weights to the edges for influence strength
-    G_weighted_edges = apply_weights(G, 0.3, 0.5)
+    G_weighted_edges = apply_weights(G, 0.2, 0.4)
 
     # Plot results of linear threshold model
     linear_active_nodes = linear_threshold_model(G, seed_nodes)
