@@ -7,9 +7,8 @@ def main():
     # Create starting graph
     G = create_graph(n=40, p=0.10)
 
-    # Determine Communities 
+    # Determine communities 
     comm = detect_communities(G)
-    print(comm)
 
     # Precompute positions using spring layout
     pos = compute_positions(G)
@@ -17,7 +16,7 @@ def main():
     # Plotting original Graph
     plot_graph(G, pos)
 
-    # Find the top 5 influencers
+    # Find the top 5 influential nodes
     seed_nodes = find_influencers(G, k=5, activation_prob=0.05)
 
     # Simulate the spread starting from the seed nodes (top 5 influencers)
