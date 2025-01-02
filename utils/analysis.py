@@ -12,3 +12,16 @@ def detect_communities(G):
     """
     communities = list(nx_comm.greedy_modularity_communities(G))
     return communities
+
+def centrality_analysis(G):
+    """
+    Computes centrality measures for all nodes and visualizes the graph based on centrality.
+    
+    Parameters:
+    - G: The graph.
+    
+    Returns:
+    - centrality: Dictionary of centrality scores for nodes.
+    """
+
+    
