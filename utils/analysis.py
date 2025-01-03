@@ -1,4 +1,5 @@
 import networkx.algorithms.community as nx_comm
+import networkx as nx
 
 def detect_communities(G):
     """
@@ -24,9 +25,5 @@ def centrality_analysis(G):
     - centrality: Dictionary of centrality scores for nodes.
     """
     centrality = nx.degree_centrality(G)
-    pos = compute_positions(G)
-    node_sizes = [1000 * centrality[node] for node in G.nodes()]
-    nx.draw(G, pos, with_labels=True, node_size=node_sizes, node_color='cyan')
-    plt.show()
     return centrality
     
