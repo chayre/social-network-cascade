@@ -12,7 +12,6 @@ def main():
 
     # Calculate centrality and plot
     centr = centrality_analysis(G)
-    print(centr)
 
     # Precompute positions using spring layout
     pos = compute_positions(G)
