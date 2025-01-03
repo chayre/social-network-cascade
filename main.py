@@ -1,7 +1,7 @@
 from utils.cascade_simulation import create_graph, independent_cascade, find_influencers
 from utils.linear_threshold_simulation import linear_threshold_model, apply_weights
 from utils.plotting import plot_graph, compute_positions
-from utils.analysis import detect_communities
+from utils.analysis import detect_communities, centrality_analysis
 
 def main():
     # Create starting graph
@@ -9,6 +9,10 @@ def main():
 
     # Determine communities 
     comm = detect_communities(G)
+
+    # Calculate centrality and plot
+    centr = centrality_analysis(G)
+    print(centr)
 
     # Precompute positions using spring layout
     pos = compute_positions(G)
