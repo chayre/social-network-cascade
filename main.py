@@ -1,7 +1,7 @@
 from utils.cascade_simulation import create_graph, independent_cascade, find_influencers
 from utils.linear_threshold_simulation import linear_threshold_model, apply_weights
 from utils.plotting import plot_graph, compute_positions
-from utils.analysis import detect_communities, centrality_analysis
+from utils.analysis import detect_communities, centrality_analysis, evolve_graph
 
 def main():
     # Create starting graph
@@ -19,6 +19,10 @@ def main():
     # Plotting original Graph
     plot_graph(G, pos)
 
+    # Graph Evolution
+    E = evolve_graph(G)
+    plot_graph(E, pos)
+
     # Find the top 5 influential nodes
     seed_nodes = find_influencers(G, k=5, activation_prob=0.05)
 
@@ -30,14 +34,14 @@ def main():
     print(f"Total Active Nodes: {len(cascade_active_nodes)}")
 
     # Plot results of independent cascade
-    plot_graph(G, pos, cascade_active_nodes, seed_nodes)
+    #plot_graph(G, pos, cascade_active_nodes, seed_nodes)
 
     # Add weights to the edges for influence strength
     G_weighted_edges = apply_weights(G, 0.2, 0.4)
 
     # Plot results of linear threshold model
     linear_active_nodes = linear_threshold_model(G, seed_nodes)
-    plot_graph(G_weighted_edges, pos, linear_active_nodes, seed_nodes)
+    #plot_graph(G_weighted_edges, pos, linear_active_nodes, seed_nodes)
 
 if __name__ == "__main__":
     main()
