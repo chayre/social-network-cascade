@@ -21,7 +21,6 @@ def main():
 
     # Graph Evolution
     E = evolve_graph(G)
-    plot_graph(E, pos)
 
     # Find the top 5 influential nodes
     seed_nodes = find_influencers(G, k=5, activation_prob=0.05)
