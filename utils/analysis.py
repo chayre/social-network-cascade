@@ -1,5 +1,6 @@
 import networkx.algorithms.community as nx_comm
 import networkx as nx
+import random
 
 def detect_communities(G):
     """
@@ -27,7 +28,7 @@ def centrality_analysis(G):
     centrality = nx.degree_centrality(G)
     return centrality
 
-def evolve_graph(G, steps=10, add_prob=0.2, remove_prob=0.1):
+def evolve_graph(G, steps=10, add_prob=0.2, remove_prob=0.9):
     """
     Simulates the evolution of a graph over time.
     
@@ -40,5 +41,18 @@ def evolve_graph(G, steps=10, add_prob=0.2, remove_prob=0.1):
     Returns:
     - G: The evolved graph
     """
-
+    for _ in range(steps):
+        if random.random() < add_prob:
+            # Add a random edge
+            nodes = list(G.nodes())
+            u, v = random.sample(nodes, 2)
+            if not G.has_edge(u, v):
+                G.add_edge(u, v)
+        
+        if random.random() < remove_prob:
+            # Remove a random edge
+            if G.edges():
+                edge = random.choice(list(G.edges()))
+                G.remove_edge(*edge)
     return G
+    
