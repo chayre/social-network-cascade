@@ -1,6 +1,9 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
+def import_graph(filepath):
+    return G
+
 def compute_positions(G):
     """
     Creates a list of node positions so that plots are spatially consistent.
