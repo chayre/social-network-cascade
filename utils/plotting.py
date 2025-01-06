@@ -2,6 +2,16 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 def import_graph(filepath):
+    """
+    Imports a graph from a file.
+    
+    Parameters:
+    - filepath: Path to the graph file (which is an edge list or adjacency list)
+    
+    Returns:
+    - G: The imported graph
+    """
+    G = nx.read_edgelist(filepath)
     return G
 
 def compute_positions(G):
