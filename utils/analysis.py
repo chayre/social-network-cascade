@@ -56,3 +56,17 @@ def evolve_graph(G, steps=10, add_prob=0.2, remove_prob=0.9):
                 G.remove_edge(*edge)
     return G
     
+def adjust_weights(G, delta=0.1):
+    """
+    Adjusts weights of edges randomly within a range of -delta to +delta.
+    
+    Parameters:
+    - G: The graph
+    - delta: Value to increase or decrease the weight
+    
+    Returns:
+    - G: The graph with adjusted weights
+    """
+    for u, v in G.edges():
+        G[u][v]['weight'] = max(0, G[u][v].get('weight', 1) + random.uniform(-delta, delta))
+    return G
